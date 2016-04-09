@@ -1,0 +1,17 @@
+{
+  "name": "puppet-windows_iscsi",
+  "version": "0.0.1",
+  "author": "Peter J. Pouliot <peter@pouliot.net>",
+  "summary": "A puppet module to configure iSCSI Services on Windows Platforms",
+  "license": "Apache 2.0",
+  "source": "https://github.com/ppouliot/puppet-windows_iscsi",
+  "project_page": "https://github.com/ppouliot/puppet-windows_iscsi",
+  "issues_url": "https://github.com/ppouliot/puppet-windows_iscsi/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"},
+	{"name":"puppetlabs-powershell","version_requirement":">= 1.0.0"},
+	{"name":"puppetlabs-registry","version_requirement":">= 1.0.0"},
+    {"name":"puppet-windowsfeature","version_requirement":">= 1.0.0"}
+  ]
+}
+
