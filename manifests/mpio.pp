@@ -1,7 +1,8 @@
 # == Class: windows_iscsi::mpio
 # Configure multipath IO for iSCSI
-
-class windows_iscsi::mpio {
+class windows_iscsi::mpio(
+  $mpio_policy = $windows_iscsi::mpio_policy
+){
   # Enable the MPIO Feature 
   exec {'Enable_WindowsFeature_MPIO':
     command  =>'Enable-WindowsOptionalFeature -Online -FeatureName MultipathIO',
@@ -14,7 +15,7 @@ class windows_iscsi::mpio {
   }
   # Set the default load balance policy of all newly claimed devices to Round Robin 
   exec {'Set_MSDSM_Global_Default_LoadBalance_Policy_RoundRobin':
-    command  =>'Set-MSDSMGlobalDefaultLoadBalancePolicy -Policy RR',
+    command  =>"Set-MSDSMGlobalDefaultLoadBalancePolicy -Policy ${mpio_policy}",
     provider => 'powershell',
   }
 }
