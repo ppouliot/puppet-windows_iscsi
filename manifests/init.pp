@@ -29,5 +29,10 @@ class windows_iscsi (
 } inherits windows_iscsi::params {
   notice("${module_name} configures iSCSI on Windows Platforms")
 
+  class{'windows_iscsi::msisci':} ->
+  class{'windows_iscsi::config':}
+
+  contain windows_iscsi::mscsci
+  contain windows_iscsi::config
 }
 
